@@ -1,0 +1,543 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Josefin Sans',sans-serif;background:#1a0800;color:#fdf0e0;overflow-x:hidden}
+
+/* ── COLOUR TOKENS ── */
+:root{
+  --ink:#1a0800;
+  --deep:#2d1000;
+  --warm:#4a1a00;
+  --amber:#c87020;
+  --gold:#e8a030;
+  --pale:#f5d080;
+  --ivory:#fdf0e0;
+  --blush:#f08060;
+  --rose:#d04050;
+  --petal:#f8c0b0;
+  --cherry:#8b1a2a;
+}
+
+/* ── CANVAS BG STARS ── */
+#c{position:absolute;inset:0;pointer-events:none}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(170deg,#0d0400 0%,#1a0800 25%,#2d1200 50%,#4a1a00 75%,#7a2800 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden
+}
+.sun{
+  width:100px;height:100px;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%,#fff8e0,#f5c040 40%,#e07800 75%,#b04000 100%);
+  margin:0 auto 2rem;flex-shrink:0;
+  animation:sunPulse 5s ease-in-out infinite
+}
+@keyframes sunPulse{
+  0%,100%{box-shadow:0 0 30px 10px rgba(232,160,48,.3),0 0 70px 30px rgba(232,160,48,.12)}
+  50%{box-shadow:0 0 60px 20px rgba(232,160,48,.5),0 0 120px 50px rgba(232,160,48,.2)}
+}
+.hero-tag{font-family:'Josefin Sans',sans-serif;font-size:.85rem;letter-spacing:5px;color:var(--pale);margin-bottom:1.5rem;animation:up .8s ease .2s both;text-transform:uppercase}
+.hero-name{font-family:'Great Vibes',cursive;font-size:clamp(3rem,9vw,7rem);line-height:1.1;animation:up .8s ease .5s both}
+.hero-name .g{color:var(--gold)}
+.hero-name .r{color:var(--blush)}
+.hero-since{font-size:.9rem;letter-spacing:4px;color:var(--petal);margin-top:1.2rem;animation:up .8s ease .8s both;text-transform:uppercase}
+.hero-ring{font-size:3.8rem;margin-top:2rem;animation:up .8s ease 1s both,float 3s ease-in-out 2s infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-14px) rotate(5deg)}}
+@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--pale);font-size:.7rem;letter-spacing:4px;text-transform:uppercase;animation:bob 2s ease infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ── PETALS CANVAS ── */
+.petals{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.p{position:absolute;width:12px;height:8px;border-radius:50% 0 50% 0;opacity:.7;animation:pfall linear infinite}
+@keyframes pfall{0%{transform:translateY(-20px) rotate(0deg) translateX(0);opacity:.8}50%{transform:translateY(50vh) rotate(180deg) translateX(30px)}100%{transform:translateY(105vh) rotate(360deg) translateX(-20px);opacity:0}}
+
+/* ── SHARED LAYOUT ── */
+.sec{padding:5.5rem 1.5rem;position:relative;overflow:hidden}
+.inner{max-width:800px;margin:0 auto}
+.badge{display:block;text-align:center;font-size:.75rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);text-align:center;margin-bottom:.5rem;line-height:1.3}
+.sub-title{text-align:center;color:var(--petal);font-size:.9rem;letter-spacing:2px;margin-bottom:2.5rem}
+.orn{text-align:center;color:var(--amber);letter-spacing:6px;font-size:1rem;margin-bottom:2.5rem}
+
+/* ── SECTION BGs ── */
+.s1{background:linear-gradient(180deg,#1a0800,#2d1000)}
+.s2{background:linear-gradient(180deg,#2d1000,#1a0800)}
+.s3{background:linear-gradient(180deg,#1a0800,#3d0a10)}
+.s4{background:linear-gradient(180deg,#3d0a10,#1a0800)}
+.s5{background:linear-gradient(180deg,#1a0800,#2d1000)}
+.s6{background:linear-gradient(180deg,#2d1000,#3d0a10)}
+.s7{background:linear-gradient(180deg,#3d0a10,#1a0800)}
+.s8{background:linear-gradient(180deg,#1a0800,#2d1500)}
+
+/* ── STORY TIMELINE ── */
+.tl{position:relative;padding-left:2.5rem}
+.tl::before{content:'';position:absolute;left:.85rem;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--amber) 20%,var(--gold) 80%,transparent)}
+.tl-row{position:relative;margin-bottom:2rem}
+.tl-dot{position:absolute;left:-2.1rem;top:.45rem;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--warm);border:2px solid var(--gold)}
+.tl-card{background:rgba(232,160,48,.07);border:1px solid rgba(232,160,48,.2);border-radius:1rem;padding:1.4rem 1.6rem;transition:all .3s}
+.tl-card:hover{background:rgba(232,160,48,.14);border-color:rgba(232,160,48,.4);transform:translateX(5px)}
+.tl-label{font-size:.75rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
+.tl-text{color:var(--petal);font-size:1.05rem;line-height:1.85;font-style:italic;font-family:'Playfair Display',serif}
+
+/* ── REASON CARDS ── */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:1.1rem}
+.rc{background:rgba(200,112,32,.08);border:1px solid rgba(200,112,32,.22);border-radius:1.2rem;padding:1.5rem 1.2rem;text-align:center;transition:all .3s;cursor:default}
+.rc:hover{transform:translateY(-7px) rotate(-1deg);background:rgba(200,112,32,.18);border-color:var(--gold)}
+.rc-ico{font-size:2rem;display:block;margin-bottom:.7rem;transition:transform .3s}
+.rc:hover .rc-ico{transform:scale(1.25)}
+.rc-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold);font-style:italic;margin-bottom:.5rem}
+.rc-desc{color:var(--petal);font-size:.88rem;line-height:1.7}
+
+/* ── MOSAIC ── */
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.mi{border-radius:1rem;display:flex;align-items:center;justify-content:center;font-size:2.3rem;aspect-ratio:1;position:relative;overflow:hidden;cursor:default;transition:transform .3s}
+.mi:hover{transform:scale(1.06) rotate(1deg)}
+.mi.wide{grid-column:span 2;aspect-ratio:2/1}
+.mi-ov{position:absolute;inset:0;background:rgba(26,8,0,.78);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;padding:.6rem;text-align:center;font-style:italic;font-size:.9rem;font-family:'Playfair Display',serif;color:var(--ivory);border-radius:1rem}
+.mi:hover .mi-ov{opacity:1}
+.m1{background:linear-gradient(135deg,#3d0a10,#7a2020)}
+.m2{background:linear-gradient(135deg,#2d1000,#6b3010)}
+.m3{background:linear-gradient(135deg,#1a0800,#4a2010)}
+.m4{background:linear-gradient(135deg,#4a0808,#a03020)}
+.m5{background:linear-gradient(135deg,#2d0a18,#7a1830)}
+.m6{background:linear-gradient(135deg,#2d1500,#7a4010)}
+.m7{background:linear-gradient(135deg,#1a0400,#5a1510)}
+
+/* ── POEM ── */
+.poem-wrap{max-width:580px;margin:0 auto;border:1px solid rgba(232,160,48,.28);border-radius:2rem;padding:3rem 2.2rem;background:rgba(26,8,0,.55);position:relative;text-align:center}
+.poem-wrap::before{content:'\201C';position:absolute;top:-1.2rem;left:1.5rem;font-family:'Playfair Display',serif;font-size:7rem;color:rgba(232,160,48,.15);line-height:1}
+.pl{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;line-height:2.2;color:var(--ivory)}
+.pl.hi{color:var(--pale);font-weight:700}
+
+/* ── COUNTER ── */
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:460px;margin:0 auto}
+.cb{background:rgba(200,112,32,.12);border:1px solid rgba(200,112,32,.28);border-radius:1rem;padding:1.3rem .5rem;text-align:center}
+.cn{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--gold);display:block;line-height:1}
+.cl{font-size:.65rem;letter-spacing:3px;color:var(--amber);margin-top:.4rem;display:block;text-transform:uppercase}
+
+/* ── QUIZ ── */
+.quiz-box{max-width:600px;margin:0 auto;background:rgba(26,8,0,.6);border:1px solid rgba(232,160,48,.25);border-radius:1.5rem;padding:2.5rem 2rem}
+.q-num{font-size:.7rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem}
+.q-text{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--ivory);margin-bottom:1.5rem;line-height:1.6}
+.q-opts{display:grid;gap:.7rem}
+.q-opt{background:rgba(232,160,48,.08);border:1px solid rgba(232,160,48,.2);border-radius:.75rem;padding:.85rem 1.2rem;cursor:pointer;font-size:.95rem;color:var(--petal);transition:all .2s;text-align:left}
+.q-opt:hover{background:rgba(232,160,48,.18);border-color:var(--gold);color:var(--ivory)}
+.q-opt.correct{background:rgba(100,160,60,.2);border-color:#80c040;color:#c8f080}
+.q-opt.wrong{background:rgba(200,50,40,.15);border-color:#c04030;color:#f09080}
+.q-feedback{margin-top:1.2rem;font-style:italic;font-size:1rem;color:var(--pale);min-height:1.4rem;text-align:center;font-family:'Playfair Display',serif}
+.q-score{text-align:center;font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);margin-top:1rem}
+.q-nav{margin-top:1.5rem;text-align:right}
+.q-btn{background:var(--amber);color:var(--ink);border:none;padding:.7rem 1.8rem;border-radius:50px;font-family:'Josefin Sans',sans-serif;font-size:.9rem;letter-spacing:2px;cursor:pointer;transition:all .2s;text-transform:uppercase}
+.q-btn:hover{background:var(--gold);transform:scale(1.04)}
+
+/* ── PROMISES ── */
+.plist{list-style:none;max-width:620px;margin:0 auto}
+.plist li{display:flex;gap:1rem;align-items:flex-start;padding:.95rem 0;border-bottom:1px solid rgba(232,160,48,.12);color:var(--petal);font-size:1rem;line-height:1.8;font-family:'Playfair Display',serif;font-style:italic}
+.plist li:last-child{border:none}
+.plist .pi{font-size:1.2rem;flex-shrink:0;margin-top:.15rem}
+
+/* ── LOVE LETTER ── */
+.letter{max-width:640px;margin:0 auto;background:rgba(26,8,0,.65);border:1px solid rgba(232,160,48,.3);border-radius:2rem;padding:3rem 2.5rem;position:relative}
+.letter::after{content:'❧';position:absolute;bottom:1.8rem;right:2rem;font-size:2rem;color:rgba(232,160,48,.25)}
+.l-to{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--gold);margin-bottom:1.3rem}
+.l-p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--petal);line-height:2;margin-bottom:1rem}
+.l-sign{font-family:'Great Vibes',cursive;font-size:1.8rem;color:var(--ivory);text-align:right;margin-top:1.5rem}
+
+/* ── MUSIC ── */
+.music-box{max-width:500px;margin:0 auto;background:rgba(200,112,32,.1);border:1px solid rgba(200,112,32,.28);border-radius:1.5rem;padding:2rem;text-align:center}
+.bars{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:44px;margin:1.2rem 0}
+.bar{width:7px;border-radius:4px 4px 0 0;background:var(--gold);animation:dance .7s ease-in-out infinite alternate}
+.bar:nth-child(1){height:14px;animation-delay:0s}.bar:nth-child(2){height:28px;animation-delay:.08s}.bar:nth-child(3){height:20px;animation-delay:.16s}.bar:nth-child(4){height:38px;animation-delay:.24s}.bar:nth-child(5){height:16px;animation-delay:.32s}.bar:nth-child(6){height:30px;animation-delay:.4s}.bar:nth-child(7){height:10px;animation-delay:.48s}.bar:nth-child(8){height:24px;animation-delay:.56s}
+@keyframes dance{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.m-song{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);font-style:italic;margin-bottom:.2rem}
+.m-art{font-size:.85rem;letter-spacing:2px;color:var(--amber);text-transform:uppercase;margin-bottom:1.2rem}
+.m-lyric{font-family:'Playfair Display',serif;font-style:italic;color:var(--petal);font-size:.95rem;line-height:1.8}
+.bars.paused .bar{animation-play-state:paused}
+.play-btn{background:var(--amber);color:var(--ink);border:none;padding:.7rem 2rem;border-radius:50px;font-family:'Josefin Sans',sans-serif;font-size:.9rem;letter-spacing:2px;cursor:pointer;transition:all .2s;text-transform:uppercase;margin-top:1.2rem}
+.play-btn:hover{background:var(--gold);transform:scale(1.04)}
+.play-btn.playing{background:var(--rose)}
+
+/* ── BUCKET LIST ── */
+.bl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.bl-item{background:rgba(200,112,32,.07);border:1px solid rgba(200,112,32,.2);border-radius:1rem;padding:1.1rem 1.3rem;display:flex;align-items:flex-start;gap:.8rem;cursor:pointer;transition:all .2s}
+.bl-item:hover{background:rgba(200,112,32,.15);border-color:var(--gold)}
+.bl-item.done{background:rgba(100,160,60,.12);border-color:#80c040}
+.bl-item.done .bl-ico{filter:none}
+.bl-ico{font-size:1.4rem;flex-shrink:0}
+.bl-txt{font-size:.92rem;color:var(--petal);line-height:1.6;font-family:'Playfair Display',serif;font-style:italic}
+.bl-item.done .bl-txt{color:#c8f080;text-decoration:line-through;text-decoration-color:rgba(128,192,64,.5)}
+
+/* ── THE BIG QUESTION ── */
+.q-sec{background:linear-gradient(160deg,#1a0800 0%,#3d0a10 40%,#6b1020 70%,#a01830 100%);text-align:center;padding:7rem 1.5rem;position:relative;overflow:hidden}
+.q-big{font-family:'Great Vibes',cursive;font-size:clamp(2.5rem,8vw,6rem);line-height:1.25;margin-bottom:1rem}
+.q-big .hi{color:var(--gold)}
+.q-sub{font-style:italic;color:var(--petal);font-size:1.15rem;margin-bottom:3rem;font-family:'Playfair Display',serif}
+.btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.byes{background:var(--gold);color:var(--ink);border:none;font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;padding:1.1rem 3rem;border-radius:50px;cursor:pointer;transition:all .25s;box-shadow:0 4px 25px rgba(232,160,48,.4)}
+.byes:hover{transform:scale(1.1);box-shadow:0 8px 50px rgba(232,160,48,.65)}
+.bno{background:transparent;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.15);font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;padding:1.1rem 2rem;border-radius:50px;cursor:pointer;transition:all .2s;position:relative}
+#resp{margin-top:2.5rem;font-family:'Great Vibes',cursive;font-size:clamp(2rem,5vw,3.5rem);color:var(--pale);opacity:0;transition:opacity .6s;min-height:3rem}
+#resp.on{opacity:1}
+
+/* ── FOOTER ── */
+.footer{background:#0d0400;text-align:center;padding:4rem 1rem;border-top:1px solid rgba(232,160,48,.1)}
+.ft{font-family:'Great Vibes',cursive;font-size:1.8rem;color:var(--gold);margin-bottom:.8rem}
+.fs{font-size:.85rem;letter-spacing:2px;color:var(--amber);text-transform:uppercase;margin-bottom:1rem}
+.fh{font-size:1.8rem;letter-spacing:6px}
+
+/* ── BURST CANVAS ── */
+#burst{position:fixed;inset:0;pointer-events:none;z-index:9999;display:none}
+</style>
+
+<canvas id="burst"></canvas>
+
+<div class="hero">
+  <canvas id="c" style="position:absolute;inset:0;pointer-events:none"></canvas>
+  <div class="petals" id="petals"></div>
+  <div class="sun"></div>
+  <div class="hero-tag">✦ a story written in gold ✦</div>
+  <h1 class="hero-name">
+    <span class="g">Griselda</span><br>
+    <span class="r">Shabuna Helsa</span><br>
+    <span class="g">Azarine</span>
+  </h1>
+  <p class="hero-since">✦ my golden sunrise ✦ my forever ✦</p>
+  <div class="hero-ring">💍</div>
+  <div class="hero-scroll">✦ scroll to explore ✦</div>
+</div>
+
+<section class="sec s1">
+  <div class="inner">
+    <span class="badge">✦ our journey ✦</span>
+    <h2 class="title" style="color:var(--gold)">The Story of Us</h2>
+    <p class="sub-title">Every chapter, every moment, every heartbeat</p>
+    <div class="orn">— ✦ —</div>
+    <div class="tl">
+      <div class="tl-row"><div class="tl-dot"></div>
+        <div class="tl-card"><div class="tl-label">The first moment</div>
+          <p class="tl-text">The universe held its breath. Then you walked in — and everything I thought I knew rearranged itself around you. It was the most natural thing that had ever happened to me.</p></div></div>
+      <div class="tl-row"><div class="tl-dot"></div>
+        <div class="tl-card"><div class="tl-label">Getting closer</div>
+          <p class="tl-text">Every message, every laugh, every conversation that ran too long into the night — you were becoming the person I reached for first. My favourite part of every day.</p></div></div>
+      <div class="tl-row"><div class="tl-dot"></div>
+        <div class="tl-card"><div class="tl-label">The moment I knew</div>
+          <p class="tl-text">Not a dramatic instant — just a quiet one. You were just being you, and I thought: I want this. I want you. Every version of my future already had you in it.</p></div></div>
+      <div class="tl-row"><div class="tl-dot"></div>
+        <div class="tl-card"><div class="tl-label">Falling completely</div>
+          <p class="tl-text">There was no going back. You had become home to me — the place where I could be entirely myself, entirely safe, entirely alive.</p></div></div>
+      <div class="tl-row"><div class="tl-dot"></div>
+        <div class="tl-card"><div class="tl-label">Right now — forever</div>
+          <p class="tl-text">And so here I am, with my whole heart in my hands and one question that changes everything. The best story I have ever known is only just beginning.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec s2">
+  <div class="inner">
+    <span class="badge">✦ written from the heart ✦</span>
+    <h2 class="title" style="color:var(--blush)">Every Reason I Love You</h2>
+    <p class="sub-title">There are thousands — here are just a few</p>
+    <div class="orn">— ✦ —</div>
+    <div class="rgrid">
+      <div class="rc"><span class="rc-ico">🌅</span><div class="rc-title">Your warmth</div><p class="rc-desc">You make every room brighter just by being in it. You are sunrise made human.</p></div>
+      <div class="rc"><span class="rc-ico">😄</span><div class="rc-title">Your laughter</div><p class="rc-desc">The sound I want to wake up to every single morning for the rest of my life.</p></div>
+      <div class="rc"><span class="rc-ico">🌿</span><div class="rc-title">Your kindness</div><p class="rc-desc">You give so much of yourself so freely. It is the most beautiful thing I have ever witnessed.</p></div>
+      <div class="rc"><span class="rc-ico">⚡</span><div class="rc-title">Your strength</div><p class="rc-desc">You face every storm with a grace that leaves me speechless and inspired every time.</p></div>
+      <div class="rc"><span class="rc-ico">💬</span><div class="rc-title">Your mind</div><p class="rc-desc">Talking with you feels like discovering new worlds. I could listen forever and ask for more.</p></div>
+      <div class="rc"><span class="rc-ico">🦋</span><div class="rc-title">Your dreams</div><p class="rc-desc">I want to spend my whole life helping every single one of them come true.</p></div>
+      <div class="rc"><span class="rc-ico">🔥</span><div class="rc-title">Your passion</div><p class="rc-desc">The way you care deeply about things sets my world on fire with joy.</p></div>
+      <div class="rc"><span class="rc-ico">🌸</span><div class="rc-title">Your soul</div><p class="rc-desc">Ancient, luminous, extraordinary. I have never met anyone quite like you.</p></div>
+      <div class="rc"><span class="rc-ico">✨</span><div class="rc-title">Your everything</div><p class="rc-desc">Every mood, every quirk, every version of you — I choose all of it, always, forever.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec s3">
+  <div class="inner">
+    <span class="badge">✦ memories ✦</span>
+    <h2 class="title" style="color:var(--pale)">Moments Frozen in Time</h2>
+    <p class="sub-title">Hover each one to remember</p>
+    <div class="orn">— ✦ —</div>
+    <div class="mosaic">
+      <div class="mi m1">🌅<span class="mi-ov">The first sunrise we watched together</span></div>
+      <div class="mi m2">☕<span class="mi-ov">Lazy mornings that felt like eternity</span></div>
+      <div class="mi m3">🌙<span class="mi-ov">Late nights talking about everything</span></div>
+      <div class="mi m4 wide">✨<span class="mi-ov">The evening I knew you were the one</span></div>
+      <div class="mi m5">🎵<span class="mi-ov">Songs that will always be ours</span></div>
+      <div class="mi m6">🌿<span class="mi-ov">Long walks with nowhere to be</span></div>
+      <div class="mi m7">💫<span class="mi-ov">Every small ordinary magical moment</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec s4">
+  <div class="inner">
+    <span class="badge">✦ a poem for you ✦</span>
+    <h2 class="title" style="color:var(--gold)">Written Only for Griselda</h2>
+    <div class="orn">— ✦ —</div>
+    <div class="poem-wrap">
+      <p class="pl">In the hour before the golden dawn,</p>
+      <p class="pl">when the world is still and soft and warm,</p>
+      <p class="pl hi">I find my thoughts always turning to you.</p>
+      <p class="pl" style="margin-top:1rem">You are the ember in the amber sky,</p>
+      <p class="pl">the cherry blossom carried high,</p>
+      <p class="pl hi">the answer that I never knew to seek.</p>
+      <p class="pl" style="margin-top:1rem">Griselda — name like morning bells,</p>
+      <p class="pl">like honey, light, and summer swells —</p>
+      <p class="pl hi">you are the poem my whole life was writing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec s5">
+  <div class="inner">
+    <span class="badge">✦ time together ✦</span>
+    <h2 class="title" style="color:var(--blush)">Every Second Counts</h2>
+    <p class="sub-title">Time spent loving you</p>
+    <div class="orn">— ✦ —</div>
+    <div class="cg">
+      <div class="cb"><span class="cn" id="cd">—</span><span class="cl">Days</span></div>
+      <div class="cb"><span class="cn" id="ch">—</span><span class="cl">Hours</span></div>
+      <div class="cb"><span class="cn" id="cm">—</span><span class="cl">Minutes</span></div>
+      <div class="cb"><span class="cn" id="cs">—</span><span class="cl">Seconds</span></div>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;color:var(--amber);font-style:italic;font-size:.9rem;font-family:'Playfair Display',serif">Every one of these moments has been a gift 🌸</p>
+  </div>
+</section>
+
+<section class="sec s6">
+  <div class="inner">
+    <span class="badge">✦ how well do you know us? ✦</span>
+    <h2 class="title" style="color:var(--pale)">A Little Love Quiz</h2>
+    <p class="sub-title">Answer to unlock a surprise</p>
+    <div class="orn">— ✦ —</div>
+    <div class="quiz-box">
+      <div id="qz-area">
+        <div class="q-num" id="qn">Chapter 1 of 5</div>
+        <div class="q-text" id="qt">Loading...</div>
+        <div class="q-opts" id="qo"></div>
+        <div class="q-feedback" id="qf"></div>
+        <div class="q-nav"><button class="q-btn" id="qnxt" style="display:none" onclick="nextQ()">Next →</button></div>
+      </div>
+      <div id="qz-end" style="display:none;text-align:center;padding:1rem 0">
+        <div style="font-size:2.5rem;margin-bottom:1rem">🌸</div>
+        <div class="q-score" id="qscore"></div>
+        <p style="color:var(--petal);font-style:italic;font-family:'Playfair Display',serif;margin-top:1rem;line-height:1.7" id="qmsg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec s7">
+  <div class="inner">
+    <span class="badge">✦ our bucket list ✦</span>
+    <h2 class="title" style="color:var(--gold)">Adventures We Will Have</h2>
+    <p class="sub-title">Tap each dream to mark it done together</p>
+    <div class="orn">— ✦ —</div>
+    <div class="bl-grid" id="blgrid">
+      <div class="bl-item" onclick="toggleBL(this)"><span class="bl-ico">🌸</span><span class="bl-txt">Watch cherry blossoms fall together</span></div>
+      <div class="bl-item" onclick="toggleBL(this)"><span class="bl-ico">🌊</span><span class="bl-txt">Walk barefoot on a beach at sunset</span></div>
+      <div class="bl-item" onclick="toggleBL(this)"><span class="bl-ico">🏔️</span><span class="bl-txt">Climb a mountain and shout our names</span></div>
+      <div class="bl-item" onclick="toggleBL(this)"><span class="bl-ico">🌍</span><span class="bl-txt">Travel somewhere neither of us has been</span></div>
+      <div class="bl-item" onclick="toggleBL(this)"><span class="bl-ico">🍳</span><span class="bl-txt">Cook a big feast together for our family</span></div>
+      <div class="bl-item" onclick="toggleBL(this)"><span class="bl-ico">🌠</span><span class="bl-txt">Fall asleep under a sky full of stars</span></div>
+      <div class="bl-item" onclick="toggleBL(this)"><span class="bl-ico">💃</span><span class="bl-txt">Dance in the rain completely carefree</span></div>
+      <div class="bl-item" onclick="toggleBL(this)"><span class="bl-ico">🏡</span><span class="bl-txt">Build our home — our beautiful forever home</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec s8">
+  <div class="inner">
+    <span class="badge">✦ my promises ✦</span>
+    <h2 class="title" style="color:var(--blush)">What I Vow to You</h2>
+    <div class="orn">— ✦ —</div>
+    <ul class="plist">
+      <li><span class="pi">🌅</span>I promise to be your calm in every storm and your joy in every sunshine.</li>
+      <li><span class="pi">💛</span>I promise to love you not just on the easy days, but fiercely on the hard ones.</li>
+      <li><span class="pi">🌸</span>I promise to make you laugh until your cheeks hurt, every single week.</li>
+      <li><span class="pi">🔥</span>I promise to never stop pursuing you — to choose you, over and over, always.</li>
+      <li><span class="pi">🌿</span>I promise to listen, truly listen, to every thought and dream and worry you carry.</li>
+      <li><span class="pi">✨</span>I promise to grow with you, to build with you, and to become the best version of myself for you.</li>
+      <li><span class="pi">💍</span>I promise, if you say yes, to spend every day making you glad that you did.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec s1">
+  <div class="inner">
+    <span class="badge">✦ our song ✦</span>
+    <h2 class="title" style="color:var(--gold)">The Melody of Us</h2>
+    <div class="orn">— ✦ —</div>
+    <div class="music-box">
+      <div class="bars paused" id="musicBars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+      <div class="m-song">🎵 A Thousand Years</div>
+      <div class="m-art">Christina Perri</div>
+      <p class="m-lyric">"I have loved you for a thousand years... I'll love you for a thousand more."</p>
+      <button class="play-btn" id="playBtn" onclick="toggleMusic()">▶ Play</button>
+      <audio id="audioPlayer" src="audio_8270583336.mp3" preload="auto"></audio>
+    </div>
+  </div>
+</section>
+
+<section class="sec s2">
+  <div class="inner">
+    <span class="badge">✦ from my soul to yours ✦</span>
+    <h2 class="title" style="color:var(--pale)">A Letter to Helsa</h2>
+    <div class="orn">— ✦ —</div>
+    <div class="letter">
+      <div class="l-to">My dearest Helsa,</div>
+      <p class="l-p">From the very first moment, you changed something in me that I did not even know needed changing. You made me softer, braver, more alive. Being loved by you is not something I take lightly — it is the greatest honour of my life.</p>
+      <p class="l-p">I have spent many hours trying to find the right words. But words alone will never carry the weight of what I feel. So instead I will just say this: you are my sunrise. You are the golden light that breaks through every dark morning. You are home.</p>
+      <p class="l-p">And I cannot imagine one more day without calling you mine forever. So with everything that I am — my whole trembling, grateful, overjoyed heart — I ask you...</p>
+      <div class="l-sign">Forever yours, with all my love 🌸</div>
+    </div>
+  </div>
+</section>
+
+<section class="q-sec">
+  <div class="inner">
+    <h2 class="q-big">
+      <span class="hi">Griselda</span><br>
+      <span style="color:var(--blush)">Shabuna Helsa</span><br>
+      <span class="hi">Azarine</span>
+    </h2>
+    <p style="font-family:'Great Vibes',cursive;font-size:clamp(2rem,6vw,4rem);color:var(--ivory);margin-bottom:.8rem">Will you marry me?</p>
+    <p class="q-sub">This is the most important question I have ever asked 💍</p>
+    <div class="btns">
+      <button class="byes" onclick="sayYes()">Yes, forever! 💍</button>
+      <button class="bno" id="nb" onmouseover="runAway()">Maybe... no</button>
+    </div>
+    <div id="resp"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="ft">Griselda Shabuna Helsa Azarine</div>
+  <div class="fs">✦ this was made with every piece of my heart ✦</div>
+  <div class="fh">💛🌸💍🌸💛</div>
+</footer>
+
+<script>
+(function(){
+  const C=document.getElementById('c');
+  const ctx=C.getContext('2d');
+  C.width=window.innerWidth;C.height=window.innerHeight;
+  const stars=Array.from({length:160},()=>({x:Math.random()*C.width,y:Math.random()*C.height,r:.5+Math.random()*1.5,t:Math.random()*Math.PI*2,s:.02+Math.random()*.04}));
+  function drawStars(){ctx.clearRect(0,0,C.width,C.height);stars.forEach(s=>{s.t+=s.s;const a=.2+.8*(Math.sin(s.t)*.5+.5);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(245,208,128,${a})`;ctx.fill()});requestAnimationFrame(drawStars)}
+  drawStars();
+
+  const pC=document.getElementById('petals');
+  const pc=['#f08060','#f5c080','#e8a030','#f0b090','#fdf0e0'];
+  for(let i=0;i<28;i++){const p=document.createElement('div');p.className='p';p.style.cssText=`left:${Math.random()*100}%;background:${pc[i%5]};animation-duration:${6+Math.random()*9}s;animation-delay:${Math.random()*8}s;width:${8+Math.random()*10}px;height:${6+Math.random()*8}px`;pC.appendChild(p)}
+
+  function tick(){
+    const now=new Date(),start=new Date('2023-01-01');
+    const diff=Math.max(0,Math.floor((now-start)/1000));
+    document.getElementById('cd').textContent=Math.floor(diff/86400);
+    document.getElementById('ch').textContent=Math.floor((diff%86400)/3600);
+    document.getElementById('cm').textContent=Math.floor((diff%3600)/60);
+    document.getElementById('cs').textContent=diff%60;
+  }
+  tick();setInterval(tick,1000);
+
+  const qs=[
+    {q:"What name was written in the stars the moment our souls first met?",opts:["Helsa Azarine","Griselda Shabuna Helsa Azarine","Helsa Shabuna","Helsa Buna"],ans:1,msg:"Yes! Every beautiful syllable of your name is a song 🌸"},
+    {q:"At what hour does Helsa's soul feel most at home with itself?",opts:["Early morning sunrise","Lazy afternoon","Golden sunset","Late night stars"],ans:2,msg:"Golden hours for a golden soul who lights up my world ✨"},
+    {q:"If Helsa could sail to any shore, where would her heart take her?",opts:["Paris, France","Kyoto, Japan","Santorini, Greece","Somewhere new — as long as we are together"],ans:3,msg:"Anywhere, as long as our hands are intertwined 💛"},
+    {q:"What does love look like through Helsa's gentle eyes?",opts:["Grand gestures only","Small, quiet moments every day","Words whispered in the dark","All of it — deeply, fully, endlessly"],ans:3,msg:"Love is everything, in every form and every breath 💍"},
+    {q:"What is the one truth I need Helsa to carry in her heart, now and forever?",opts:["You are beautiful beyond measure","You are my forever — my only one","You are my best friend, my home","All three — every word, endlessly and completely"],ans:3,msg:"All of it, every heartbeat, for all of our tomorrows 🌅"}
+  ];
+  let qi=0,score=0,answered=false;
+  function loadQ(){
+    answered=false;
+    const q=qs[qi];
+    document.getElementById('qn').textContent=`Chapter ${qi+1} of ${qs.length}`;
+    document.getElementById('qt').textContent=q.q;
+    document.getElementById('qf').textContent='';
+    document.getElementById('qnxt').style.display='none';
+    const oo=document.getElementById('qo');
+    oo.innerHTML='';
+    q.opts.forEach((o,i)=>{
+      const b=document.createElement('button');
+      b.className='q-opt';b.textContent=o;
+      b.onclick=()=>{
+        if(answered)return;answered=true;
+        const isRight=(i===q.ans);
+        if(isRight)score++;
+        b.classList.add(isRight?'correct':'wrong');
+        if(!isRight)oo.children[q.ans].classList.add('correct');
+        document.getElementById('qf').textContent=isRight?'✓ '+q.msg:'Not quite — but love guided your heart 💛';
+        document.getElementById('qnxt').style.display='inline-block';
+      };
+      oo.appendChild(b);
+    });
+  }
+  window.nextQ=function(){
+    qi++;
+    if(qi>=qs.length){
+      document.getElementById('qz-area').style.display='none';
+      document.getElementById('qz-end').style.display='block';
+      document.getElementById('qscore').textContent=`You scored ${score} / ${qs.length} 💛`;
+      const msgs=["Every answer was beautiful — just like you 🌸","Love shines through every one of your answers ✨","Your heart knows the right answers already 💍","You are wonderful in every possible way 🌅"];
+      document.getElementById('qmsg').textContent=msgs[Math.min(score,msgs.length-1)];
+    }else{loadQ()}
+  };
+  loadQ();
+
+  window.toggleBL=function(el){el.classList.toggle('done')};
+
+  window.runAway=function(){
+    const b=document.getElementById('nb');
+    b.style.position='relative';
+    b.style.left=(Math.random()*180-90)+'px';
+    b.style.top=(Math.random()*80-40)+'px';
+    b.style.transition='left .15s ease,top .15s ease';
+  };
+
+  window.sayYes=function(){
+    const r=document.getElementById('resp');
+    r.textContent='She said YES!!! 🎉💍🌸✨💛';
+    r.classList.add('on');
+    burst();
+    setTimeout(()=>{r.textContent='I love you so much, Helsa 💛'},3200);
+  };
+
+  function burst(){
+    const cv=document.getElementById('burst');
+    cv.style.display='block';
+    cv.width=window.innerWidth;cv.height=window.innerHeight;
+    const cx=cv.getContext('2d');
+    const parts=[];
+    const cols=['#e8a030','#f5d080','#f08060','#d04050','#fdf0e0','#c87020'];
+    for(let i=0;i<120;i++){parts.push({x:cv.width*.5,y:cv.height*.5,vx:(Math.random()-0.5)*12,vy:(Math.random()-1)*14,r:4+Math.random()*8,c:cols[i%6],life:1,dec:.012+Math.random()*.01})}
+    let af;
+    (function frame(){
+      cx.clearRect(0,0,cv.width,cv.height);
+      parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.25;p.life-=p.dec;if(p.life<=0)return;cx.save();cx.globalAlpha=p.life;cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fill();cx.restore()});
+      if(parts.some(p=>p.life>0)){af=requestAnimationFrame(frame)}else{cv.style.display='none'}
+    })();
+    setTimeout(()=>{cancelAnimationFrame(af);cv.style.display='none'},6000);
+  }
+
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
+  document.querySelectorAll('.tl-card,.rc,.bl-item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease,transform .6s ease';obs.observe(el)});
+
+  const audio=document.getElementById('audioPlayer');
+  audio.volume=0.3;
+  audio.muted=true;
+  (function tryPlay(){audio.play().then(()=>{setTimeout(()=>{audio.muted=false},200)}).catch(()=>{setTimeout(tryPlay,300)})})();
+  function onInteraction(){audio.play().then(()=>{audio.muted=false}).catch(()=>{});['click','touchstart','keydown','scroll'].forEach(e=>document.removeEventListener(e,onInteraction))}
+  ['click','touchstart','keydown','scroll'].forEach(e=>document.addEventListener(e,onInteraction,{once:true}));
+  audio.addEventListener('play',()=>{document.getElementById('playBtn').textContent='⏸ Pause';document.getElementById('playBtn').classList.add('playing');document.getElementById('musicBars').classList.remove('paused')});
+  audio.addEventListener('pause',()=>{document.getElementById('playBtn').textContent='▶ Play';document.getElementById('playBtn').classList.remove('playing');document.getElementById('musicBars').classList.add('paused')});
+  audio.addEventListener('ended',()=>{document.getElementById('playBtn').textContent='▶ Play';document.getElementById('playBtn').classList.remove('playing');document.getElementById('musicBars').classList.add('paused')});
+  window.toggleMusic=function(){
+    if(audio.paused){audio.play()}else{audio.pause()}
+  };
+})();
+</script>
