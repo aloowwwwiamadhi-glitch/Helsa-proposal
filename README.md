@@ -1,10 +1,37 @@
 <div align="center">
 
+<br>
+
+```
+     @@@
+    @@@@@
+    @@@@@
+     @@@
+      @
+   @@@@@@@
+  @@@@@@@@@
+ @@@@@@@@@@@
+ @@@@@@@@@@@
+ @@@@@@@@@@@
+  @@@@@@@@@
+   @@@@@@@
+     @@@
+    @@@@@
+   @@@@@@@
+      @
+      @
+     @@@
+    @@@@@
+     @@@
+      @
+  (\___/)
+  (='.'=)
+  (")_(")
+```
+
 # 💛 Griselda · Helsa · Proposal 💛
 
 **A digital love letter — crafted with code and heart**
-
----
 
 🌸 **[View the Live Site](https://aloowwwwiamadhi-glitch.github.io/Helsa-proposal/)** 🌸
 
@@ -29,5 +56,14 @@
 <p>
   Made with ❤️ · 🌅 · 💛 · 🌸 · 💍
 </p>
+
+```
+   💍
+  .::.
+  :::::
+  :::::
+  ':::'
+   ':'
+```
 
 </div>
