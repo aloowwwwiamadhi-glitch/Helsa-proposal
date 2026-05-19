@@ -11,17 +11,18 @@
 ---
 
 ### ✦ What's Inside
-- A story of us — timeline from first moment to forever
-- Every reason I love you
-- Memories mosaic
-- A poem written only for her
-- Live love counter
-- Romantic quiz
-- Our bucket list
-- Seven promises
-- Our song
-- A love letter
-- **The big question** 💍
+
+•  A story of us — timeline from first moment to forever<br>
+•  Every reason I love you<br>
+•  Memories mosaic<br>
+•  A poem written only for her<br>
+•  Live love counter<br>
+•  Romantic quiz<br>
+•  Our bucket list<br>
+•  Seven promises<br>
+•  Our song<br>
+•  A love letter<br>
+•  **The big question** 💍
 
 ---
 
