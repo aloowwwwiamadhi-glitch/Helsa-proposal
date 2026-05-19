@@ -436,7 +436,7 @@ body{font-family:'Josefin Sans',sans-serif;background:#1a0800;color:#fdf0e0;over
   for(let i=0;i<28;i++){const p=document.createElement('div');p.className='p';p.style.cssText=`left:${Math.random()*100}%;background:${pc[i%5]};animation-duration:${6+Math.random()*9}s;animation-delay:${Math.random()*8}s;width:${8+Math.random()*10}px;height:${6+Math.random()*8}px`;pC.appendChild(p)}
 
   function tick(){
-    const now=new Date(),start=new Date('2023-01-01');
+    const now=new Date(),start=new Date('2025-12-20T10:00:00');
     const diff=Math.max(0,Math.floor((now-start)/1000));
     document.getElementById('cd').textContent=Math.floor(diff/86400);
     document.getElementById('ch').textContent=Math.floor((diff%86400)/3600);
