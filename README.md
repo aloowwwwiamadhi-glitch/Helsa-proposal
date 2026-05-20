@@ -9,6 +9,14 @@
 🌸 **[View the Live Site](https://aloowwwwiamadhi-glitch.github.io/Helsa-proposal/)** 🌸
 
 ---
+### ✦ What's Inside
+
+
+---
+
+<p>
+  Made with ❤️ · 🌅 · 💛 · 🌸 · 💍
+</p>
 
 
 ```
