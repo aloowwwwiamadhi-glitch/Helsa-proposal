@@ -10,25 +10,6 @@
 
 ---
 
-### ✦ What's Inside
-
-•  A story of us — timeline from first moment to forever<br>
-•  Every reason I love you<br>
-•  Memories mosaic<br>
-•  A poem written only for her<br>
-•  Live love counter<br>
-•  Romantic quiz<br>
-•  Our bucket list<br>
-•  Seven promises<br>
-•  Our song<br>
-•  A love letter<br>
-•  **The big question** 💍
-
----
-
-<p>
-  Made with ❤️ · 🌅 · 💛 · 🌸 · 💍
-</p>
 
 ```
 ⢸⢸⢸⢸⢸⢸⢸⢸⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⣺⡺⡺⡪⡪⡪⡺⡪⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⣺⡺⣮⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⡪⣪⡪⡮⣪⣪⡪⡮⡮⡮⡺⡺⣺⣺⣺⣺
